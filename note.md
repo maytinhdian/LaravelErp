@@ -1,4 +1,18 @@
 # Webapp quản lý sản phẩm TMT Innovative Sollution Co.,ltd
+## Phân tích database 
+
+## Create model 
+- Link tham khảo https://laravel.com/docs/10.x/eloquent#generating-model-classes
+
+- Lệnh commit cơ bản, đơn giản nhất là thực hiện với tham số -m để kèm dòng thông tin về commit
+
+    + git commit -m "Ghi chú về commit"
+        Lệnh trên tạo ra một commit với nội dung lấy từ vùng staging, một điểm trong lịch sử commit được tạo ra với thông tin là dòng thông tin nhập vào, sau này bạn có thể xem lại lịch sử này bằng lệnh git log
+
+        Thực hiện commit với tham số -a
+        Khi cho tham số -a thì nó tương đương thực hiện lệnh git add để đưa các file đang được giám sát có sự thay đổi vào staging rồi tự động chạy git commit
+
+    + git commit -a -m "Ghi chú về commit"
 
 ## Install laravel modules
 - To install via Composer, run: composer require nwidart/laravel-modules
