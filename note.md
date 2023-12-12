@@ -1,6 +1,15 @@
 # Webapp quản lý sản phẩm TMT Innovative Sollution Co.,ltd
 ## Phân tích database 
-
+1. Table categories 
+    - id =>int
+    - name => varchar(200)
+    - slug => varchar(200)
+    - parent_id =>int
+    - created_at => timestamp
+    - updated_at => timestamp
+## Dành cho người dùng 
+## Dành cho quản trị 
+## API 
 ## Create model 
 - Link tham khảo https://laravel.com/docs/10.x/eloquent#generating-model-classes
 
