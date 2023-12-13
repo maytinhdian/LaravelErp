@@ -36,10 +36,14 @@
 
 ## Install Laravel UI
 - Command to install the LARAVEL ui package in the laravel app composer require laravel/ui
-- Create frontend 
+### Create frontend 
+
+- Create frontend via VUE
     + npm create vite@latest
     + Edit package.json Scripts: "dev": "vite --port=3000",
     + npm install && npm run dev 
+- Install package ( https://tailwindcss.com/docs/guides/vite#vue )
+    + 
 - Setup React Auth Scaffolding php artisan ui react --auth
 - Install Npm Packages npm install 
     + Error: npm ERR! Could not resolve dependency: npm ERR! peer vite@"^3.0.0" from @vitejs/plugin-react@2.2.0 
