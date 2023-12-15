@@ -7,7 +7,7 @@ import { useStateContext } from "../contexts/ContextProvider";
 const navigation = [
     { name: "Dashboard", to: "/" },
     { name: "Products", to: "/product", current: false },
-    { name: "Test Router", to: "/test", current: false },
+    // { name: "Test Router", to: "/test", current: false },
 ];
 const userNavigation = [
     // { name: "Your Profile", href: "#" },
