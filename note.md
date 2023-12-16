@@ -51,3 +51,4 @@
 - Run php artisan Migrate php artisan migrate
 - Install package 
     + npm install @headlessui/react@latest
+    + npm install -axios

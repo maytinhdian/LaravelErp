@@ -9,6 +9,7 @@ import Product from "./views/product";
 import Test from "./views/test";
 
 const router = createBrowserRouter([
+
     {
         path: "/",
         element: <DefaultLayout />,
@@ -18,17 +19,13 @@ const router = createBrowserRouter([
                 element: <Dashboard />,
             },
             {
-                path: "/dashboard",
+                path: "dashboard",
                 element: <Navigate to="/" />,
             },
             {
-                path: "/product",
+                path: "product",
                 element: <Product />,
             },
-            // {
-            //     path: "/test",
-            //     element: <Test />,
-            // },
         ],
     },
     {
@@ -36,15 +33,16 @@ const router = createBrowserRouter([
         element: <GuestLayout />,
         children: [
             {
-                path: "/login",
-                element: <Login />,
+                path: "login",
+                element: <Login/>,
             },
             {
-                path: "/signup",
+                path: "signup",
                 element: <Signup />,
             },
         ],
     },
+
 ]);
 
 export default router;
