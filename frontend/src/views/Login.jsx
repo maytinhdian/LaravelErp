@@ -15,7 +15,11 @@ export default function Login() {
         setError({ __html: "" });
 
         axiosClient
+<<<<<<< HEAD
             .post('/login', {
+=======
+            .post("http://127.0.0.1:8000/api/login", {
+>>>>>>> 9074506a02b16f284e884ee676793b676c3936e9
                 email,
                 password,
             })
