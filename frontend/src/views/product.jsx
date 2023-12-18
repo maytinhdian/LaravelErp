@@ -419,7 +419,7 @@ export default function Product() {
                                             className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                                         />
                                         <label
-                                            
+
                                             className="block text-sm font-medium leading-6 text-gray-900"
                                         >
                                             No push notifications

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import axiosClient from "../axios.js";
+import axiosClient from "../api/axios.js";
 import { LockClosedIcon } from "@heroicons/react/20/solid";
 import { useState } from "react";
 import { useStateContext } from "../contexts/ContextProvider.jsx";
@@ -30,6 +30,9 @@ export default function Signup() {
             })
             .catch((error) => {
                 if (!error.response) {
+                    console.log('login success');
+                }
+                else{
                     const finalErrors = Object.values(
                         error.response.data.errors
                     ).reduce((accum, next) => [...accum, ...next], []);
