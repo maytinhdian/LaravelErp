@@ -2,7 +2,7 @@ import axios from "axios";
 import router from "./router";
 
 const axiosClient = axios.create({
-    // baseUrl: `${import.meta.env.VITE_API_BASE_URL}`,
+    // baseUrl: ${import.meta.env.VITE_API_BASE_URL};
     baseUrl: `http://127.0.0.1:8000/api`,
 });
 axiosClient.interceptors.request.use((config) => {
@@ -12,6 +12,7 @@ axiosClient.interceptors.request.use((config) => {
 
 axiosClient.interceptors.request.use(
     (respone) => {
+        console.log(import.meta.env.VITE_API_BASE_URL);
         return respone;
     },
     (error) => {

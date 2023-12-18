@@ -42,7 +42,7 @@ class AuthController extends Controller
 
         return response([
             'user' => $user,
-            'token' => $token
+            'token' => $token,
         ]);
     }
     public function logout(Request $request){

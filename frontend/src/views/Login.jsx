@@ -15,7 +15,7 @@ export default function Login() {
         setError({ __html: "" });
 
         axiosClient
-            .post("/login", {
+            .post("http://127.0.0.1:8000/api/login", {
                 email,
                 password,
             })
@@ -26,14 +26,14 @@ export default function Login() {
             })
             .catch((error) => {
                 if (error.response) {
-                    // const finalErrors = Object.values(
-                    //     error.response.data.errors
-                    // ).reduce((accum, next) => [...accum, ...next], []);
-                    // console.log(finalErrors);
-                    // setError({ __html: finalErrors.join("<br>") });
+                    const finalErrors = Object.values(
+                        error.response.data.errors
+                    ).reduce((accum, next) => [...accum, ...next], []);
+                    console.log(finalErrors);
+                    setError({ __html: finalErrors.join("<br>") });
 
                 }
-                // console.error(error.response);
+                console.error(error.response);
             });
     };
     return (
