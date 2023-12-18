@@ -1,6 +1,11 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { Bars3Icon, BellIcon, UserIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import {
+    Bars3Icon,
+    BellIcon,
+    UserIcon,
+    XMarkIcon,
+} from "@heroicons/react/24/outline";
 import { NavLink, Navigate, Outlet } from "react-router-dom";
 import { useStateContext } from "../contexts/ContextProvider";
 import axiosClient from "../axios";
@@ -21,18 +26,18 @@ function classNames(...classes) {
 }
 
 export default function DefaultLayout() {
-
     const { currentUser, userToken, setCurrentUser, setUserToken } =
-    useStateContext();
+        useStateContext();
     if (!userToken) {
-        return <Navigate to="login"></Navigate>
+        return <Navigate to="login"></Navigate>;
     }
     const logout = (ev) => {
         ev.preventDefault();
         axiosClient.post("/logout").then((res) => {
+            console.log(res);
             setCurrentUser({});
             setUserToken(null);
-          });
+        });
     };
     return (
         <>
@@ -75,8 +80,6 @@ export default function DefaultLayout() {
                                     </div>
                                     <div className="hidden md:block">
                                         <div className="ml-4 flex items-center md:ml-6">
-
-
                                             {/* Profile dropdown */}
                                             <Menu
                                                 as="div"
@@ -115,7 +118,13 @@ export default function DefaultLayout() {
                                                                             href={
                                                                                 item.href
                                                                             }
-                                                                            onClick={(ev)=>logout(ev)}
+                                                                            onClick={(
+                                                                                ev
+                                                                            ) =>
+                                                                                logout(
+                                                                                    ev
+                                                                                )
+                                                                            }
                                                                             className={classNames(
                                                                                 active
                                                                                     ? "bg-gray-100"
@@ -186,7 +195,7 @@ export default function DefaultLayout() {
                                 <div className="border-t border-gray-700 pb-3 pt-4">
                                     <div className="flex items-center px-5">
                                         <div className="flex-shrink-0">
-                                        <UserIcon className="w-8 h-8 bg-black/25 p-2 rounded-full text-white" />
+                                            <UserIcon className="w-8 h-8 bg-black/25 p-2 rounded-full text-white" />
                                         </div>
                                         <div className="ml-3">
                                             <div className="text-base font-medium leading-none text-white">
@@ -196,7 +205,6 @@ export default function DefaultLayout() {
                                                 {currentUser.email}
                                             </div>
                                         </div>
-
                                     </div>
                                     <div className="mt-3 space-y-1 px-2">
                                         {userNavigation.map((item) => (
