@@ -1,25 +1,27 @@
-import axios from 'axios';
+import axios from "axios";
 import router from "./router";
 
 const axiosClient = axios.create({
-    baseUrl: `${import.meta.env.VITE_API_BASE_URL}/api`
-})
+    // baseUrl: `${import.meta.env.VITE_API_BASE_URL}`,
+    baseUrl: `http://127.0.0.1:8000/api`,
+});
 axiosClient.interceptors.request.use((config) => {
-    const token = "123";//TODO
-    config.headers.Authorization = `Bearer ${token}`;
-    return config
-  });
+    config.headers.Authorization = `Bearer ${localStorage.getItem("TOKEN")}`;
+    return config;
+});
 
-  axiosClient.interceptors.request.use(
+axiosClient.interceptors.request.use(
     (respone) => {
-      return respone;
+        return respone;
     },
     (error) => {
-      if (error.respone && error.respone.status === 401) {
-        router.navigate('/login')
-        return error;
-      }
-      throw error;
+        if (error.respone && error.respone.status === 401) {
+            // router.navigate("/login");
+            localStorage.removeItem("TOKEN");
+            window.location.reload();
+            return error;
+        }
+        throw error;
     }
-  );
+);
 export default axiosClient;

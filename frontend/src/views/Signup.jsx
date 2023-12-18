@@ -29,7 +29,7 @@ export default function Signup() {
                 setUserToken(data.token);
             })
             .catch((error) => {
-                if (error.response) {
+                if (!error.response) {
                     const finalErrors = Object.values(
                         error.response.data.errors
                     ).reduce((accum, next) => [...accum, ...next], []);
