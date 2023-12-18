@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-// import axiosClient from "../axios.js";
+import axiosClient from "../axios.js";
 import { LockClosedIcon } from "@heroicons/react/20/solid";
 import { useState } from "react";
 import { useStateContext } from "../contexts/ContextProvider.jsx";
@@ -16,28 +16,28 @@ export default function Signup() {
         ev.preventDefault();
         setError({ __html: "" });
 
-        // axiosClient
-        //     .post("/signup", {
-        //         name: fullName,
-        //         email,
-        //         password,
-        //         password_confirmation: passwordConfirmation,
-        //     })
-        //     .then(({ data }) => {
-        //         // console.log(data);
-        //         setCurrentUser(data.user);
-        //         setUserToken(data.token);
-        //     })
-        //     .catch((error) => {
-        //         if (error.response) {
-        //             const finalErrors = Object.values(
-        //                 error.response.data.errors
-        //             ).reduce((accum, next) => [...accum, ...next], []);
-        //             console.log(finalErrors);
-        //             setError({ __html: finalErrors.join("<br>") });
-        //         }
-        //         console.error(error);
-        //     });
+        axiosClient
+            .post("/signup", {
+                name: fullName,
+                email,
+                password,
+                password_confirmation: passwordConfirmation,
+            })
+            .then(({ data }) => {
+                // console.log(data);
+                setCurrentUser(data.user);
+                setUserToken(data.token);
+            })
+            .catch((error) => {
+                if (error.response) {
+                    const finalErrors = Object.values(
+                        error.response.data.errors
+                    ).reduce((accum, next) => [...accum, ...next], []);
+                    console.log(finalErrors);
+                    setError({ __html: finalErrors.join("<br>") });
+                }
+                console.error(error);
+            });
     };
 
     return (
@@ -45,14 +45,7 @@ export default function Signup() {
             <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
                 Đăng ký thành viên
             </h2>
-            <p className="mt-2 text-center text-sm text-gray-600">
-                <Link
-                    to="/login"
-                    className="font-medium text-indigo-600 hover:text-indigo-500"
-                >
-                    Login with your account
-                </Link>
-            </p>
+
             {error.__html && (
                 <div
                     className="bg-red-500 rounded py-2 px-3 text-white"
@@ -153,6 +146,15 @@ export default function Signup() {
                         </button>
                     </div>
                 </form>
+                <p className="mt-2 text-center text-sm text-gray-600">
+                    Đã đăng ký thành viên?{" "}
+                    <Link
+                        to="/login"
+                        className="font-medium text-indigo-600 hover:text-indigo-500"
+                    >
+                        Đăng nhập hệ thống
+                    </Link>
+                </p>
             </div>
         </>
     );
