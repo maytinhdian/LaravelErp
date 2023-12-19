@@ -18,6 +18,38 @@
 
 ## Create model
 
+    1. Generate a model and a ProductFactory class...
+        php artisan make:model Product --factory
+        php artisan make:model Product -f
+
+    2. Generate a model and a ProductSeeder class...
+        php artisan make:model Product --seed
+        php artisan make:model Product -s
+
+    3. Generate a model and a ProductController class...
+        php artisan make:model Product --controller
+        php artisan make:model Product -c
+
+    4. Generate a model, ProductController resource class, and form request classes...
+        php artisan make:model Product --controller --resource --requests
+        php artisan make:model Product -crR
+
+    5. Generate a model and a ProductPolicy class...
+        php artisan make:model Product --policy
+
+    6. Generate a model and a migration, factory, seeder, and controller...
+        php artisan make:model Product -mfsc
+
+    7. Shortcut to generate a model, migration, factory, seeder, policy, 
+    controller, and form requests...
+        php artisan make:model Product --all
+
+    8. Generate a pivot model...
+        php artisan make:model Member --pivot
+        php artisan make:model Member -p
+
+## Git basic commands
+
 - Link tham khảo <https://laravel.com/docs/10.x/eloquent#generating-model-classes>
 
 - Lệnh commit cơ bản, đơn giản nhất là thực hiện với tham số -m để kèm dòng thông tin về commit
@@ -62,7 +94,7 @@
 - Install package
   - npm install @headlessui/react@latest
   - npm install -axios
-- Khắc phục lỗi không có gợi ý tailwindcss 
+- Khắc phục lỗi không có gợi ý tailwindcss
   - Edit your VSCode settings.json:
         "files.associations": {
         "*.css": "tailwindcss"
@@ -71,4 +103,3 @@
         "strings": true
         }
     - To fix this issue try using ctrl + space
-    
