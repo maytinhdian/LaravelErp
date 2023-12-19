@@ -62,3 +62,13 @@
 - Install package
   - npm install @headlessui/react@latest
   - npm install -axios
+- Khắc phục lỗi không có gợi ý tailwindcss 
+  - Edit your VSCode settings.json:
+        "files.associations": {
+        "*.css": "tailwindcss"
+        },
+        "editor.quickSuggestions": {
+        "strings": true
+        }
+    - To fix this issue try using ctrl + space
+    
